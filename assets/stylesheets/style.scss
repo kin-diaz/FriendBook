@@ -1,0 +1,340 @@
+// Imports a Google font - 'Poppins'
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+// Global styles, Poppins font and no margin & padding
+* {
+    font-family: 'Poppins', sans-serif; 
+    margin: 0;
+    padding: 0;
+}
+
+// All elements have border-box in the box-sizing so that padding is accounted for
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+// Changes the cursor to pointer for some elements
+button, h3, .header img, a {
+    cursor: pointer;
+}
+
+// The animation style to help images load in the website; takes up the whole screen
+.loader-wrapper {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: fixed;
+    background-color: #222E50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // Main square that turns by animation
+    .loader {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        position: fixed;
+        border: 4px solid white;
+        animation: loader 3s infinite ease;
+    
+        // Second square that fills up by animation
+        .loader-inner {
+            vertical-align: top;
+            display: inline-block;
+            width: 100%;
+            background-color: white;
+            animation: loader-inner 1s infinite ease-in;
+        }
+    }
+}
+
+// Square animation that helps it turn 360degrees and back
+@keyframes loader {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(180deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
+}
+
+// Square animation that helps it fill up and back again
+@keyframes loader-inner {
+    0% { height: 0%; }
+    25% { height: 0%; }
+    50% { height: 100%; }
+    75% { height: 100%; }
+    100% { height: 0%; }
+}
+
+// All the main pages have the same grid style and height
+.landing-page, .register-page, .login-page, .reset-page, .create-page {
+    background-color: white;
+    height: 800px; //This is needed to contain the images
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow-x: hidden;
+}
+
+// Changing the background images so the left side of the picture will show and grow
+.landing-page .illustration  {
+    background: #fff url("../images/Dzmitry-Kazak-Fireart-Studio.png") left / cover no-repeat;
+}
+.login-page .illustration  {
+    background: #fff url("../images/Aliffajar.jpg") left / cover no-repeat;
+}
+.register-page .illustration  {
+    background: #fff url("../images/Marat-Vahitov.png") left / cover no-repeat;
+}
+.reset-page .illustration, .create-page .illustration {
+    background: #fff url("../images/Van-Life.jpg") left / cover no-repeat;
+}
+
+// Button styling
+.register-btn, .reset-btn, .reset_button, .login-btn {
+    margin-top: 24px;
+    color: white;
+    border: none;
+    background-color: #02D9CD;
+    &:hover {
+        box-shadow: 4px 4px 20px rgba(2, 217, 205, 0.2);
+        background-color: #02CAC0;
+    }
+}
+
+// Both pages have sucess messages so a different colour to attract attention
+.reset-page, .create-page {
+    .sucess {
+        color: #5E7CE2;
+    }
+}
+
+// Changin the margin bottom so there's white spacing
+.landing-page, .reset-page, .create-page {
+    .text {
+        margin-bottom: 200px;
+    }
+}
+.login-page {
+    .text {
+        margin-bottom: 100px;
+    }
+}
+
+// Main content styling for all the pages
+.content {
+    padding: 60px 100px 20px;
+    display: grid;
+    align-content: space-between;  
+    
+    .header {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 14px;
+        color: #222E50;
+        &:hover {
+            filter: brightness(125%);
+			-webkit-filter: brightness(125%);
+		}
+    }
+
+    .text {
+        h1 {
+            color: #292929;
+            font-size: 25px;
+        }
+        .msg {
+            margin-top: 5px;
+            margin-bottom: 25px;
+            font-size: 16px;
+            color: #707070;
+        }
+        button, input[type=submit] {
+            margin-bottom: 15px;
+            width: 100%;
+            border-radius: 15px;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .index-register-btn {
+            color: #222E50;
+            border: 2px solid #5E7CE2;
+            background-color: white;
+            &:hover {
+                box-shadow: 4px 4px 20px rgba(86, 154, 194, 0.2);
+                color: #5E7CE2;
+            }
+        }
+        form {
+            display: grid;
+
+            .name {
+                display: grid;
+                grid-auto-flow: column;
+                grid-gap: 20px;
+            }
+        }
+        .custom-field {
+            position: relative;
+            font-size: 14px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            input {
+                border:none;
+                appearance: none;
+                outline: none;
+                padding: 12px;
+                width: 100%;
+                font-size: 14px;
+                border-radius: 0;
+                border-top-left-radius: 3px;
+                border-top-right-radius: 3px;
+                background:
+                    linear-gradient(90deg, #02D9CD, #02D9CD) center bottom/0 2px no-repeat,
+                    linear-gradient(90deg, #222E50, #222E50) left bottom/100% 2px no-repeat,
+                    linear-gradient(90deg, #F1F3F9, #F1F3F9) left bottom/100% no-repeat;
+                transition: background-size 0.3s ease;
+                    
+                &:valid, &:focus {
+                    background-size: 100% 2px, 100% 2px, 100%;
+                }
+                &:valid + .placeholder,
+                &:focus + .placeholder {
+                    top: -10px;
+                    font-size: 12px;
+                    color: #292929;
+                    background-size: 100% 2px, 100% 2px, 100%;
+                }
+            }
+        }
+        .placeholder {
+            position: absolute;
+            left: 12px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            top: 22px;
+            line-height: 100%;
+            transform: translateY(-50%);
+            color: #707070;
+            transition: 
+                top 0.3s ease,
+                color 0.3s ease,
+                font-size 0.3s ease;
+        }
+        .other {
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: space-between;
+            margin-top: 15px;
+            .remember {
+                display: grid;
+                grid-auto-flow: column;
+                align-items: center;
+                grid-gap: 10px;
+                input[type=checkbox] {
+                    transform: scale(1.5);
+                }
+                label {
+                    font-size: 14px;
+                }
+            }
+            .forgot-pass a {
+                text-decoration: none;	
+                color: #5E7CE2;
+                font-weight: bold;	
+                font-size: 14px;
+                border-bottom: 2px solid white;
+                &:hover {
+                    color: darken(#5E7CE2, 10%);
+                }
+            }
+        }
+        .option {
+            font-size: 14px !important;
+            a {
+                color: #5E7CE2;
+                font-weight: bold;
+                &:hover {
+                    color: darken(#5E7CE2, 10%);
+                }
+            }
+        }
+    }
+}
+
+// Footer styling
+footer {
+	font-size: 12px;
+	color: #292929;
+}
+
+// Simple code for responsiveness
+@media screen and (max-width: 800px) {
+    .landing-page, .register-page, .login-page, .reset-page, .create-page {
+        grid-template-columns: 1fr;
+
+        .content {
+            padding: 60px 200px 20px 100px;
+        }
+
+        .text {
+            margin-bottom: 80px;
+        }
+
+        h1 {
+            font-size: 20px;
+        }
+
+        .msg {
+            font-size: 14px;
+        }
+
+        .login-btn, .index-register-btn {
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .landing-page, .register-page, .login-page, .reset-page, .create-page {
+        grid-template-columns: 1fr;
+
+        .content {
+            padding: 60px 100px 20px;
+        }
+
+        h4 {
+            font-size: 20px;
+        }
+        .msg {
+            font-size: 14px;
+        }
+    }
+    .other {
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .landing-page, .register-page, .login-page, .reset-page, .create-page {
+        grid-template-columns: 1fr;
+
+        .content {
+            padding: 60px 70px 20px;
+        }
+    }
+
+    .other {
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 10px;
+    }
+}

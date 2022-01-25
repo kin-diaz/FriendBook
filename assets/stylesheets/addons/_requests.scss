@@ -1,0 +1,42 @@
+.requests-page {
+    margin: 20px 170px;
+
+    h4 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #5E7CE2;
+    }
+    .info {
+        font-size: 14px;
+        color: gray;
+        margin-bottom: 20px;
+    }
+
+    .request {
+        margin: 15px 0;
+        border: 2px solid #5E7CE2;
+        border-radius: 15px;
+        padding: 15px 25px;
+        display: grid;
+        grid-template-columns: 350px auto;
+        grid-gap: 20px;
+        
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 30px;
+
+            [type="submit"] {
+                background-color: #02D9CD;
+                border: none;
+                border-radius: 10px;
+                color: white;
+                padding: 15px 25px;
+
+                &:hover {
+                    background-color: #02CAC0;
+                }
+            }
+        }
+    }
+}

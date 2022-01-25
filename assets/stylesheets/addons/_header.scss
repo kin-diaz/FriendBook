@@ -1,0 +1,120 @@
+.header {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 170px;
+    background-color: white;
+
+    img {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    .logo {
+        width: 52px;
+        height: 52px;
+    }
+
+    .icons {
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 25px;
+        
+        i {
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            width: 52px;
+            height: 52px;
+            color: #222E50;
+            background-color: #F1F3F9;
+            border-radius: 15px;
+            &:hover {
+                color: #5E7CE2;
+            }
+        }
+        .post-btn, .settings-btn, .explore-btn, .notif-btn {
+            background-color: white;
+            border: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+.modal-container {
+	background-color: rgba(0, 0, 0, .3);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	opacity: 0;
+	pointer-events: none;
+    z-index: 5;
+
+	.modal {
+		width: 505px;
+		background-color: white;
+		border-radius: 50px;
+        display: block;
+
+        .close-btn {
+            position: fixed;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+        }
+
+        h3 {
+            padding: 20px 0;
+            text-align: center;
+            cursor: auto;
+        }
+		div {
+            padding: 30px 50px;
+            background-color: #F4F6FA;
+		    border-radius: 0px 0px 50px 50px;
+            form {
+                hr {
+                    border: none;
+                }
+                .post-text {
+                    background-color: #F4F6FA;
+                    width: 100%;
+                    height: 240px;
+                    box-sizing: border-box;
+                    border: none;
+                    color: #222E50;
+                    font-family: 'Poppins', sans-serif;
+                }
+                textarea::placeholder {
+                    background-color: #F4F6FA;
+                    color: #222E50;
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: bold;
+                }
+                .create-post-btn {
+                    margin-top: 10px;
+                    @include btn-style-1;
+                    width: 100%;
+                    background-color: #5E7CE2;
+                    cursor: pointer;
+                }
+            }
+		}
+	}
+}
+
+.modal-container.show {
+	pointer-events: auto;
+	opacity: 1;
+	transition: visibility 0s, opacity 0.4s ease-in;
+}

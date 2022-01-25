@@ -1,0 +1,59 @@
+// Imports a Google font - 'Poppins'
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+// Mixin for the button style.
+@mixin btn-style-1 {
+    margin-top: 24px;
+    color: white;
+    border: none;
+    background-color: #02D9CD;
+    margin-bottom: 15px;
+    width: 100%;
+    border-radius: 15px;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+
+    &:hover {
+        box-shadow: 4px 4px 20px rgba(2, 217, 205, 0.2);
+        background-color: #02CAC0;
+    }
+}
+
+// Global styles.
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: #F1F3F9;
+}
+
+// Button styling.
+button, h3, .header img, a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+// Importing the styling for the other pages.
+@import "addons/bootstrap";
+@import "addons/jquery.Jcrop";
+@import "addons/main";
+@import "addons/settings";
+@import "addons/header";
+@import "addons/profile";
+@import "addons/upload";
+@import "addons/requests";
+@import "addons/close-account";
+@import "addons/closed";

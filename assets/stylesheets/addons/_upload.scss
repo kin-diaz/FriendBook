@@ -1,0 +1,51 @@
+.upload-page {
+    margin: 20px 170px;
+
+    h4 {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .info {
+        font-size: 14px;
+        color: gray;
+        margin-bottom: 15px;
+    }
+
+    #image {
+        display: none;
+    }
+    .new {
+        width: 400px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        border: 2px solid #5E7CE2;
+        border-radius: 5px;
+
+        label {
+            margin-bottom: 0;
+        }
+
+        .file {
+            color: #616060;
+            border: none;
+            border-radius: 5px 0 0 5px;
+
+            .file-custom {
+                display: inline-block;
+                padding: 6px 12px;
+                cursor: pointer;
+            }
+        }
+        input[type="submit"] {
+            border: none;
+            background-color: #5E7CE2;
+            color: white;
+            padding: 5px 10px;
+    
+            &:hover {
+                background-color: darken(#5E7CE2, 10%);
+            }
+        }
+    }
+}

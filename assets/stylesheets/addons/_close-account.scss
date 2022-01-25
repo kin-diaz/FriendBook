@@ -1,0 +1,26 @@
+.close-account-page {
+    margin: 20px 170px;
+
+    h4 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #5E7CE2;
+    }
+    .info {
+        font-size: 14px;
+        color: gray;
+        margin-bottom: 20px;
+    }
+    
+    input[type="submit"] {
+        border: none;
+        background-color: #5E7CE2;
+        border-radius: 10px;
+        color: white;
+        padding: 10px 20px;
+
+        &:hover {
+            background-color: darken(#5E7CE2, 10%);
+        }
+    }
+}
